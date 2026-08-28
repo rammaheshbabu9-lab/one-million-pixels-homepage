@@ -1,0 +1,1037 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Million Pixels Homepage</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#111827;
+}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    font-size:20px;
+    font-weight:900;
+}
+
+.brand span{
+    color:#2563eb;
+}
+
+.nav-btn,
+.hero-btn,
+.reserve-btn{
+    border:0;
+    background:#111827;
+    color:#fff;
+    padding:11px 18px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    max-width:1000px;
+    margin:auto;
+    padding:65px 20px 35px;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,70px);
+    line-height:1;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:700px;
+    margin:20px auto;
+    color:#64748b;
+    line-height:1.7;
+}
+
+.hero-btn{
+    background:#2563eb;
+    padding:13px 24px;
+}
+
+/* STATS */
+.stats{
+    max-width:900px;
+    margin:20px auto 35px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.stat{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px;
+    text-align:center;
+}
+
+.stat small{
+    display:block;
+    color:#64748b;
+    margin-bottom:6px;
+}
+
+.stat strong{
+    font-size:21px;
+}
+
+/* PRICES */
+.pricing{
+    max-width:1050px;
+    margin:auto;
+    padding:0 20px 30px;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:17px;
+}
+
+.price-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.price-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    padding:18px;
+    text-align:center;
+}
+
+.price-card strong{
+    display:block;
+    font-size:25px;
+}
+
+.price-card span{
+    color:#64748b;
+    font-size:13px;
+}
+
+/* SEARCH */
+.search-area{
+    max-width:1050px;
+    margin:auto;
+    padding:0 20px 18px;
+}
+
+.search{
+    width:100%;
+    padding:13px 15px;
+    border:1px solid #d9dee8;
+    border-radius:11px;
+    outline:none;
+    background:#fff;
+    font-size:15px;
+}
+
+/* WALL */
+.wall-section{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 60px;
+}
+
+.wall-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.wall-heading h2{
+    font-size:22px;
+}
+
+.wall-heading span{
+    color:#64748b;
+    font-size:13px;
+}
+
+.pixel-wall{
+    background:#111827;
+    padding:7px;
+    border-radius:17px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.pixel-row{
+    display:grid;
+    grid-template-columns:repeat(20,1fr);
+    gap:2px;
+    margin-bottom:2px;
+}
+
+.pixel{
+    position:relative;
+    aspect-ratio:1;
+    border:0;
+    padding:0;
+    background:#e5e7eb;
+    cursor:pointer;
+    overflow:hidden;
+    transition:.15s;
+}
+
+.pixel:hover{
+    transform:scale(1.15);
+    z-index:5;
+    box-shadow:0 0 0 2px #2563eb;
+}
+
+.pixel.sold{
+    background:#16a34a;
+}
+
+.pixel img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.company-name{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:2px;
+    background:rgba(0,0,0,.75);
+    color:#fff;
+    font-size:6px;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+/* LEGEND */
+.legend{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:17px 0;
+    font-size:13px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:3px;
+}
+
+.available{background:#e5e7eb}
+.booked{background:#16a34a}
+.premium{background:#f59e0b}
+.edge{background:#8b5cf6}
+.corner{background:#ef4444}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(15,23,42,.72);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.profile-card{
+    width:min(430px,100%);
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+}
+
+.profile-cover{
+    height:95px;
+    background:linear-gradient(135deg,#111827,#2563eb);
+}
+
+.close-btn{
+    position:absolute;
+    right:13px;
+    top:13px;
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    font-size:19px;
+    cursor:pointer;
+}
+
+.profile-content{
+    padding:0 24px 25px;
+}
+
+.profile-logo{
+    width:82px;
+    height:82px;
+    margin-top:-41px;
+    border-radius:17px;
+    object-fit:cover;
+    background:#fff;
+    border:5px solid #fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.profile-content h2{
+    margin-top:13px;
+}
+
+.profile-category{
+    color:#2563eb;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.profile-description{
+    margin-top:14px;
+    color:#64748b;
+    line-height:1.6;
+}
+
+.profile-info{
+    background:#f8fafc;
+    border-radius:12px;
+    margin-top:17px;
+    padding:14px;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.website-btn{
+    display:none;
+    width:100%;
+    padding:13px;
+    margin-top:14px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.reserve-btn{
+    width:100%;
+    margin-top:10px;
+}
+
+/* FOOTER */
+footer{
+    background:#111827;
+    color:#cbd5e1;
+    text-align:center;
+    padding:30px 20px;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .brand{
+        font-size:14px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .price-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pixel-wall{
+        padding:4px;
+    }
+
+    .pixel-row{
+        gap:1px;
+        margin-bottom:1px;
+    }
+
+    .pixel:hover{
+        transform:none;
+    }
+
+    .wall-heading{
+        display:block;
+    }
+
+    .wall-heading span{
+        display:block;
+        margin-top:5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="brand">
+            ONE MILLION <span>PIXELS</span> HOMEPAGE
+        </div>
+
+        <button class="nav-btn" onclick="goToWall()">
+            Buy Pixel
+        </button>
+
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <h1>
+        ONE MILLION <span>PIXELS</span>
+    </h1>
+
+    <p>
+        Own a digital space for your brand.
+        Showcase your logo, company profile and
+        website on the One Million Pixels Homepage.
+    </p>
+
+    <button class="hero-btn" onclick="goToWall()">
+        Explore Pixel Wall
+    </button>
+
+</section>
+
+
+<section class="stats">
+
+    <div class="stat">
+        <small>Total Digital Space</small>
+        <strong>1,000,000</strong>
+    </div>
+
+    <div class="stat">
+        <small>Built For</small>
+        <strong>Brands</strong>
+    </div>
+
+    <div class="stat">
+        <small>Platform</small>
+        <strong>India 🇮🇳</strong>
+    </div>
+
+</section>
+
+
+<section class="pricing">
+
+    <h2 class="title">
+        Choose Your Digital Space
+    </h2>
+
+    <div class="price-grid">
+
+        <div class="price-card">
+            <strong>₹99</strong>
+            <span>CENTER</span>
+        </div>
+
+        <div class="price-card">
+            <strong>₹199</strong>
+            <span>PREMIUM</span>
+        </div>
+
+        <div class="price-card">
+            <strong>₹299</strong>
+            <span>EDGE</span>
+        </div>
+
+        <div class="price-card">
+            <strong>₹499</strong>
+            <span>CORNER</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="search-area">
+
+    <input
+        id="searchBox"
+        class="search"
+        type="text"
+        placeholder="Search company..."
+        oninput="searchCompany()">
+
+</div>
+
+
+<section class="wall-section" id="pixelWallSection">
+
+    <div class="wall-heading">
+
+        <h2>Million Pixel Wall</h2>
+
+        <span>
+            Click a pixel to view its profile
+        </span>
+
+    </div>
+
+
+    <div class="legend">
+
+        <div class="legend-item">
+            <span class="dot available"></span>
+            Available
+        </div>
+
+        <div class="legend-item">
+            <span class="dot booked"></span>
+            Booked
+        </div>
+
+        <div class="legend-item">
+            <span class="dot premium"></span>
+            Premium
+        </div>
+
+        <div class="legend-item">
+            <span class="dot edge"></span>
+            Edge
+        </div>
+
+        <div class="legend-item">
+            <span class="dot corner"></span>
+            Corner
+        </div>
+
+    </div>
+
+
+    <div class="pixel-wall" id="pixelWall"></div>
+
+</section>
+
+
+<div class="modal" id="profileModal">
+
+    <div class="profile-card">
+
+        <div class="profile-cover"></div>
+
+        <button class="close-btn" onclick="closeProfile()">
+            ×
+        </button>
+
+        <div class="profile-content">
+
+            <img
+                id="profileLogo"
+                class="profile-logo"
+                src="https://via.placeholder.com/150?text=PIXEL"
+                alt="Company Logo">
+
+            <h2 id="profileName">
+                Available Pixel
+            </h2>
+
+            <div id="profileCategory" class="profile-category">
+                Digital Business Space
+            </div>
+
+            <p id="profileDescription" class="profile-description">
+                This digital space is available for your company.
+            </p>
+
+            <div class="profile-info">
+
+                <div>
+                    <b>Zone:</b>
+                    <span id="profileZone"></span>
+                </div>
+
+                <div>
+                    <b>Price:</b>
+                    ₹<span id="profilePrice"></span>
+                </div>
+
+                <div>
+                    <b>Pixel:</b>
+                    <span id="profilePixel"></span>
+                </div>
+
+            </div>
+
+            <a
+                id="websiteButton"
+                class="website-btn"
+                href="#"
+                target="_blank">
+                Visit Website
+            </a>
+
+            <button
+                class="reserve-btn"
+                onclick="reservePixel()">
+                Reserve This Pixel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <strong>ONE MILLION PIXELS HOMEPAGE</strong>
+
+    <div style="margin-top:8px;">
+        One Million Pixels. Millions of Brands.
+    </div>
+
+    <div style="margin-top:12px;">
+        © 2026 One Million Pixels Homepage
+    </div>
+
+</footer>
+
+
+<script>
+
+const TOTAL_ROWS = 100;
+const BLOCKS_PER_ROW = 20;
+
+const PRICES = {
+    CENTER: 99,
+    PREMIUM: 199,
+    EDGE: 299,
+    CORNER: 499
+};
+
+
+/*
+Demo data.
+Later this will come from Spring Boot API.
+*/
+
+const companies = {
+
+    12: {
+        name: "Microsoft",
+        category: "Technology",
+        logo: "https://logo.clearbit.com/microsoft.com",
+        website: "https://www.microsoft.com",
+        description: "Technology company profile demo."
+    },
+
+    48: {
+        name: "Ram Solutions",
+        category: "Technology",
+        logo: "https://via.placeholder.com/150?text=RS",
+        website: "https://example.com",
+        description: "Digital technology solutions company."
+    },
+
+    125: {
+        name: "Example Brand",
+        category: "Business",
+        logo: "https://via.placeholder.com/150?text=EB",
+        website: "https://example.com",
+        description: "Example brand profile."
+    }
+
+};
+
+
+let selectedPixel = null;
+
+
+function getZone(row, block) {
+
+    const firstRow = row === 1;
+    const lastRow = row === TOTAL_ROWS;
+
+    const firstBlock = block === 1;
+    const lastBlock = block === BLOCKS_PER_ROW;
+
+
+    if (
+        (firstRow || lastRow) &&
+        (firstBlock || lastBlock)
+    ) {
+        return "CORNER";
+    }
+
+
+    if (
+        firstRow ||
+        lastRow ||
+        firstBlock ||
+        lastBlock
+    ) {
+        return "EDGE";
+    }
+
+
+    if (
+        row >= 40 &&
+        row <= 60 &&
+        block >= 7 &&
+        block <= 14
+    ) {
+        return "PREMIUM";
+    }
+
+
+    return "CENTER";
+}
+
+
+function createPixelWall() {
+
+    const wall =
+        document.getElementById("pixelWall");
+
+    wall.innerHTML = "";
+
+    let pixelNumber = 1;
+
+
+    for (
+        let row = 1;
+        row <= TOTAL_ROWS;
+        row++
+    ) {
+
+        const rowElement =
+            document.createElement("div");
+
+        rowElement.className = "pixel-row";
+
+
+        for (
+            let block = 1;
+            block <= BLOCKS_PER_ROW;
+            block++
+        ) {
+
+            const pixel =
+                document.createElement("button");
+
+            pixel.className = "pixel";
+
+
+            const zone =
+                getZone(row, block);
+
+            const company =
+                companies[pixelNumber];
+
+
+            if (company) {
+
+                pixel.classList.add("sold");
+
+                pixel.innerHTML = `
+
+                    <img
+                        src="${company.logo}"
+                        alt="${company.name}"
+                        onerror="
+                            this.src=
+                            'https://via.placeholder.com/100?text=Logo'
+                        "
+                    >
+
+                    <span class="company-name">
+                        ${company.name}
+                    </span>
+
+                `;
+
+            }
+
+
+            pixel.title =
+                `${zone} | ₹${PRICES[zone]} | Pixel ${pixelNumber}`;
+
+
+            const currentPixel =
+                pixelNumber;
+
+
+            pixel.onclick = function() {
+
+                openProfile(
+                    currentPixel,
+                    zone,
+                    company
+                );
+
+            };
+
+
+            rowElement.appendChild(pixel);
+
+            pixelNumber++;
+
+        }
+
+
+        wall.appendChild(rowElement);
+
+    }
+
+}
+
+
+function openProfile(
+    pixelNumber,
+    zone,
+    company
+) {
+
+    selectedPixel = {
+        pixelNumber,
+        zone
+    };
+
+
+    const modal =
+        document.getElementById("profileModal");
+
+
+    document.getElementById(
+        "profileZone"
+    ).textContent = zone;
+
+
+    document.getElementById(
+        "profilePrice"
+    ).textContent = PRICES[zone];
+
+
+    document.getElementById(
+        "profilePixel"
+    ).textContent = pixelNumber;
+
+
+    const websiteButton =
+        document.getElementById("websiteButton");
+
+
+    if (company) {
+
+        document.getElementById(
+            "profileLogo"
+        ).src = company.logo;
+
+
+        document.getElementById(
+            "profileName"
+        ).textContent = company.name;
+
+
+        document.getElementById(
+            "profileCategory"
+        ).textContent = company.category;
+
+
+        document.getElementById(
+            "profileDescription"
+        ).textContent = company.description;
+
+
+        websiteButton.style.display = "block";
+
+        websiteButton.href = company.website;
+
+    } else {
+
+        document.getElementById(
+            "profileLogo"
+        ).src =
+            "https://via.placeholder.com/150?text=PIXEL";
+
+
+        document.getElementById(
+            "profileName"
+        ).textContent =
+            "Available Pixel";
+
+
+        document.getElementById(
+            "profileCategory"
+        ).textContent =
+            "Digital Business Space";
+
+
+        document.getElementById(
+            "profileDescription"
+        ).textContent =
+            "This digital space is available for your company.";
+
+
+        websiteButton.style.display = "none";
+
+    }
+
+
+    modal.classList.add("show");
+
+}
+
+
+function closeProfile() {
+
+    document
+        .getElementById("profileModal")
+        .classList.remove("show");
+
+}
+
+
+function reservePixel() {
+
+    if (!selectedPixel) {
+        return;
+    }
+
+
+    alert(
+        "Selected Pixel: " +
+        selectedPixel.pixelNumber +
+        "\nZone: " +
+        selectedPixel.zone +
+        "\nPrice: ₹" +
+        PRICES[selectedPixel.zone] +
+        "\n\nBooking API and Payment Gateway will be connected next."
+    );
+
+}
+
+
+function searchCompany() {
+
+    const value =
+        document
+            .getElementById("searchBox")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    document
+        .querySelectorAll(".pixel")
+        .forEach(pixel => {
+
+            const text =
+                pixel.textContent.toLowerCase();
+
+
+            pixel.style.opacity =
+                (!value || text.includes(value))
+                    ? "1"
+                    : ".15";
+
+        });
+
+}
+
+
+function goToWall() {
+
+    document
+        .getElementById("pixelWallSection")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+document
+    .getElementById("profileModal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === this) {
+                closeProfile();
+            }
+
+        }
+    );
+
+
+createPixelWall();
+
+</script>
+
+</body>
+</html>
+```
