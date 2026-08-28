@@ -21,7 +21,6 @@ body{
     color:#111827;
 }
 
-/* HEADER */
 header{
     position:sticky;
     top:0;
@@ -48,19 +47,24 @@ header{
     color:#2563eb;
 }
 
+button{
+    cursor:pointer;
+}
+
 .nav-btn,
 .hero-btn,
 .reserve-btn{
     border:0;
-    background:#111827;
     color:#fff;
     padding:11px 18px;
     border-radius:10px;
     font-weight:700;
-    cursor:pointer;
 }
 
-/* HERO */
+.nav-btn{
+    background:#111827;
+}
+
 .hero{
     text-align:center;
     max-width:1000px;
@@ -90,7 +94,6 @@ header{
     padding:13px 24px;
 }
 
-/* STATS */
 .stats{
     max-width:900px;
     margin:20px auto 35px;
@@ -118,7 +121,6 @@ header{
     font-size:21px;
 }
 
-/* PRICES */
 .pricing{
     max-width:1050px;
     margin:auto;
@@ -154,7 +156,6 @@ header{
     font-size:13px;
 }
 
-/* SEARCH */
 .search-area{
     max-width:1050px;
     margin:auto;
@@ -171,7 +172,6 @@ header{
     font-size:15px;
 }
 
-/* WALL */
 .wall-section{
     max-width:1200px;
     margin:auto;
@@ -199,7 +199,6 @@ header{
     padding:7px;
     border-radius:17px;
     overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
 }
 
 .pixel-row{
@@ -215,7 +214,6 @@ header{
     border:0;
     padding:0;
     background:#e5e7eb;
-    cursor:pointer;
     overflow:hidden;
     transition:.15s;
 }
@@ -249,7 +247,6 @@ header{
     overflow:hidden;
 }
 
-/* LEGEND */
 .legend{
     display:flex;
     justify-content:center;
@@ -271,13 +268,26 @@ header{
     border-radius:3px;
 }
 
-.available{background:#e5e7eb}
-.booked{background:#16a34a}
-.premium{background:#f59e0b}
-.edge{background:#8b5cf6}
-.corner{background:#ef4444}
+.available{
+    background:#e5e7eb;
+}
 
-/* MODAL */
+.booked{
+    background:#16a34a;
+}
+
+.premium{
+    background:#f59e0b;
+}
+
+.edge{
+    background:#8b5cf6;
+}
+
+.corner{
+    background:#ef4444;
+}
+
 .modal{
     display:none;
     position:fixed;
@@ -316,7 +326,6 @@ header{
     border-radius:50%;
     background:#fff;
     font-size:19px;
-    cursor:pointer;
 }
 
 .profile-content{
@@ -331,7 +340,6 @@ header{
     object-fit:cover;
     background:#fff;
     border:5px solid #fff;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
 .profile-content h2{
@@ -375,9 +383,14 @@ header{
 .reserve-btn{
     width:100%;
     margin-top:10px;
+    background:#111827;
 }
 
-/* FOOTER */
+.reserve-btn:disabled{
+    background:#94a3b8;
+    cursor:not-allowed;
+}
+
 footer{
     background:#111827;
     color:#cbd5e1;
@@ -386,7 +399,21 @@ footer{
     font-size:13px;
 }
 
-/* MOBILE */
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    background:#111827;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:10px;
+    display:none;
+    z-index:9999;
+    max-width:90%;
+    text-align:center;
+}
+
 @media(max-width:700px){
 
     .brand{
@@ -429,301 +456,306 @@ footer{
 <body>
 
 <header>
-    <div class="navbar">
 
-        <div class="brand">
-            ONE MILLION <span>PIXELS</span> HOMEPAGE
-        </div>
+<div class="navbar">
 
-        <button class="nav-btn" onclick="goToWall()">
-            Buy Pixel
-        </button>
+<div class="brand">
+ONE MILLION <span>PIXELS</span> HOMEPAGE
+</div>
 
-    </div>
+<button class="nav-btn" onclick="goToWall()">
+Buy Pixel
+</button>
+
+</div>
+
 </header>
 
 
 <section class="hero">
 
-    <h1>
-        ONE MILLION <span>PIXELS</span>
-    </h1>
+<h1>
+ONE MILLION <span>PIXELS</span>
+</h1>
 
-    <p>
-        Own a digital space for your brand.
-        Showcase your logo, company profile and
-        website on the One Million Pixels Homepage.
-    </p>
+<p>
+Own a digital space for your brand.
+Showcase your logo, company profile and
+website on the One Million Pixels Homepage.
+</p>
 
-    <button class="hero-btn" onclick="goToWall()">
-        Explore Pixel Wall
-    </button>
+<button class="hero-btn" onclick="goToWall()">
+Explore Pixel Wall
+</button>
 
 </section>
 
 
 <section class="stats">
 
-    <div class="stat">
-        <small>Total Digital Space</small>
-        <strong>1,000,000</strong>
-    </div>
+<div class="stat">
+<small>Total Digital Space</small>
+<strong>1,000,000</strong>
+</div>
 
-    <div class="stat">
-        <small>Built For</small>
-        <strong>Brands</strong>
-    </div>
+<div class="stat">
+<small>Built For</small>
+<strong>Brands</strong>
+</div>
 
-    <div class="stat">
-        <small>Platform</small>
-        <strong>India 🇮🇳</strong>
-    </div>
+<div class="stat">
+<small>Platform</small>
+<strong>India 🇮🇳</strong>
+</div>
 
 </section>
 
 
 <section class="pricing">
 
-    <h2 class="title">
-        Choose Your Digital Space
-    </h2>
+<h2 class="title">
+Choose Your Digital Space
+</h2>
 
-    <div class="price-grid">
+<div class="price-grid">
 
-        <div class="price-card">
-            <strong>₹99</strong>
-            <span>CENTER</span>
-        </div>
+<div class="price-card">
+<strong>₹99</strong>
+<span>CENTER</span>
+</div>
 
-        <div class="price-card">
-            <strong>₹199</strong>
-            <span>PREMIUM</span>
-        </div>
+<div class="price-card">
+<strong>₹199</strong>
+<span>PREMIUM</span>
+</div>
 
-        <div class="price-card">
-            <strong>₹299</strong>
-            <span>EDGE</span>
-        </div>
+<div class="price-card">
+<strong>₹299</strong>
+<span>EDGE</span>
+</div>
 
-        <div class="price-card">
-            <strong>₹499</strong>
-            <span>CORNER</span>
-        </div>
+<div class="price-card">
+<strong>₹499</strong>
+<span>CORNER</span>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 <div class="search-area">
 
-    <input
-        id="searchBox"
-        class="search"
-        type="text"
-        placeholder="Search company..."
-        oninput="searchCompany()">
+<input
+id="searchBox"
+class="search"
+type="text"
+placeholder="Search company..."
+oninput="searchCompany()">
 
 </div>
 
 
 <section class="wall-section" id="pixelWallSection">
 
-    <div class="wall-heading">
+<div class="wall-heading">
 
-        <h2>Million Pixel Wall</h2>
+<h2>Million Pixel Wall</h2>
 
-        <span>
-            Click a pixel to view its profile
-        </span>
+<span>
+Click a pixel to view its profile
+</span>
 
-    </div>
-
-
-    <div class="legend">
-
-        <div class="legend-item">
-            <span class="dot available"></span>
-            Available
-        </div>
-
-        <div class="legend-item">
-            <span class="dot booked"></span>
-            Booked
-        </div>
-
-        <div class="legend-item">
-            <span class="dot premium"></span>
-            Premium
-        </div>
-
-        <div class="legend-item">
-            <span class="dot edge"></span>
-            Edge
-        </div>
-
-        <div class="legend-item">
-            <span class="dot corner"></span>
-            Corner
-        </div>
-
-    </div>
+</div>
 
 
-    <div class="pixel-wall" id="pixelWall"></div>
+<div class="legend">
+
+<div class="legend-item">
+<span class="dot available"></span>
+Available
+</div>
+
+<div class="legend-item">
+<span class="dot booked"></span>
+Booked
+</div>
+
+<div class="legend-item">
+<span class="dot premium"></span>
+Premium
+</div>
+
+<div class="legend-item">
+<span class="dot edge"></span>
+Edge
+</div>
+
+<div class="legend-item">
+<span class="dot corner"></span>
+Corner
+</div>
+
+</div>
+
+
+<div class="pixel-wall" id="pixelWall"></div>
 
 </section>
 
 
 <div class="modal" id="profileModal">
 
-    <div class="profile-card">
+<div class="profile-card">
 
-        <div class="profile-cover"></div>
+<div class="profile-cover"></div>
 
-        <button class="close-btn" onclick="closeProfile()">
-            ×
-        </button>
+<button class="close-btn" onclick="closeProfile()">
+×
+</button>
 
-        <div class="profile-content">
+<div class="profile-content">
 
-            <img
-                id="profileLogo"
-                class="profile-logo"
-                src="https://via.placeholder.com/150?text=PIXEL"
-                alt="Company Logo">
+<img
+id="profileLogo"
+class="profile-logo"
+src="https://via.placeholder.com/150?text=PIXEL"
+alt="Company Logo">
 
-            <h2 id="profileName">
-                Available Pixel
-            </h2>
+<h2 id="profileName">
+Available Pixel
+</h2>
 
-            <div id="profileCategory" class="profile-category">
-                Digital Business Space
-            </div>
+<div id="profileCategory" class="profile-category">
+Digital Business Space
+</div>
 
-            <p id="profileDescription" class="profile-description">
-                This digital space is available for your company.
-            </p>
+<p id="profileDescription" class="profile-description">
+This digital space is available for your company.
+</p>
 
-            <div class="profile-info">
+<div class="profile-info">
 
-                <div>
-                    <b>Zone:</b>
-                    <span id="profileZone"></span>
-                </div>
+<div>
+<b>Zone:</b>
+<span id="profileZone"></span>
+</div>
 
-                <div>
-                    <b>Price:</b>
-                    ₹<span id="profilePrice"></span>
-                </div>
+<div>
+<b>Price:</b>
+₹<span id="profilePrice"></span>
+</div>
 
-                <div>
-                    <b>Pixel:</b>
-                    <span id="profilePixel"></span>
-                </div>
+<div>
+<b>Pixel:</b>
+<span id="profilePixel"></span>
+</div>
 
-            </div>
+</div>
 
-            <a
-                id="websiteButton"
-                class="website-btn"
-                href="#"
-                target="_blank">
-                Visit Website
-            </a>
+<a
+id="websiteButton"
+class="website-btn"
+href="#"
+target="_blank">
+Visit Website
+</a>
 
-            <button
-                class="reserve-btn"
-                onclick="reservePixel()">
-                Reserve This Pixel
-            </button>
+<button
+id="reserveButton"
+class="reserve-btn"
+onclick="reservePixel()">
+Reserve This Pixel
+</button>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </div>
 
 
+<div id="toast" class="toast"></div>
+
+
 <footer>
 
-    <strong>ONE MILLION PIXELS HOMEPAGE</strong>
+<strong>ONE MILLION PIXELS HOMEPAGE</strong>
 
-    <div style="margin-top:8px;">
-        One Million Pixels. Millions of Brands.
-    </div>
+<div style="margin-top:8px;">
+One Million Pixels. Millions of Brands.
+</div>
 
-    <div style="margin-top:12px;">
-        © 2026 One Million Pixels Homepage
-    </div>
+<div style="margin-top:12px;">
+© 2026 One Million Pixels Homepage
+</div>
 
 </footer>
 
 
 <script>
 
-const TOTAL_ROWS = 100;
-const BLOCKS_PER_ROW = 20;
-
-const PRICES = {
-    CENTER: 99,
-    PREMIUM: 199,
-    EDGE: 299,
-    CORNER: 499
-};
-
-
 /*
-Demo data.
-Later this will come from Spring Boot API.
+==========================================
+BACKEND CONFIGURATION
+==========================================
 */
 
-const companies = {
+const API_BASE_URL =
+    "http://localhost:8080";
 
-    12: {
-        name: "Microsoft",
-        category: "Technology",
-        logo: "https://logo.clearbit.com/microsoft.com",
-        website: "https://www.microsoft.com",
-        description: "Technology company profile demo."
-    },
 
-    48: {
-        name: "Ram Solutions",
-        category: "Technology",
-        logo: "https://via.placeholder.com/150?text=RS",
-        website: "https://example.com",
-        description: "Digital technology solutions company."
-    },
+const TOTAL_ROWS = 100;
 
-    125: {
-        name: "Example Brand",
-        category: "Business",
-        logo: "https://via.placeholder.com/150?text=EB",
-        website: "https://example.com",
-        description: "Example brand profile."
-    }
+const BLOCKS_PER_ROW = 20;
+
+
+const PRICES = {
+
+    CENTER: 99,
+
+    PREMIUM: 199,
+
+    EDGE: 299,
+
+    CORNER: 499
 
 };
 
 
 let selectedPixel = null;
 
+let bookedPixels = {};
+
+
+/*
+==========================================
+ZONE CALCULATION
+==========================================
+*/
 
 function getZone(row, block) {
 
-    const firstRow = row === 1;
-    const lastRow = row === TOTAL_ROWS;
+    const firstRow =
+        row === 1;
 
-    const firstBlock = block === 1;
-    const lastBlock = block === BLOCKS_PER_ROW;
+    const lastRow =
+        row === TOTAL_ROWS;
+
+    const firstBlock =
+        block === 1;
+
+    const lastBlock =
+        block === BLOCKS_PER_ROW;
 
 
     if (
         (firstRow || lastRow) &&
         (firstBlock || lastBlock)
     ) {
+
         return "CORNER";
+
     }
 
 
@@ -733,7 +765,9 @@ function getZone(row, block) {
         firstBlock ||
         lastBlock
     ) {
+
         return "EDGE";
+
     }
 
 
@@ -743,7 +777,9 @@ function getZone(row, block) {
         block >= 7 &&
         block <= 14
     ) {
+
         return "PREMIUM";
+
     }
 
 
@@ -751,12 +787,84 @@ function getZone(row, block) {
 }
 
 
+/*
+==========================================
+LOAD CONFIRMED BOOKINGS
+==========================================
+*/
+
+async function loadBookings() {
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE_URL +
+                "/api/bookings/confirmed"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Could not load bookings."
+            );
+
+        }
+
+
+        const bookings =
+            await response.json();
+
+
+        bookedPixels = {};
+
+
+        bookings.forEach(
+            booking => {
+
+                bookedPixels[
+                    booking.pixelNumber
+                ] = booking;
+
+            }
+        );
+
+
+        createPixelWall();
+
+    } catch (error) {
+
+        console.error(error);
+
+        /*
+         * Backend may not be running
+         * while frontend is being designed.
+         */
+
+        createPixelWall();
+
+    }
+
+}
+
+
+/*
+==========================================
+CREATE PIXEL WALL
+==========================================
+*/
+
 function createPixelWall() {
 
     const wall =
-        document.getElementById("pixelWall");
+        document.getElementById(
+            "pixelWall"
+        );
+
 
     wall.innerHTML = "";
+
 
     let pixelNumber = 1;
 
@@ -768,9 +876,13 @@ function createPixelWall() {
     ) {
 
         const rowElement =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        rowElement.className = "pixel-row";
+
+        rowElement.className =
+            "pixel-row";
 
 
         for (
@@ -780,27 +892,45 @@ function createPixelWall() {
         ) {
 
             const pixel =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
-            pixel.className = "pixel";
+
+            pixel.className =
+                "pixel";
 
 
             const zone =
-                getZone(row, block);
+                getZone(
+                    row,
+                    block
+                );
+
 
             const company =
-                companies[pixelNumber];
+                bookedPixels[
+                    pixelNumber
+                ];
 
 
             if (company) {
 
-                pixel.classList.add("sold");
+                pixel.classList.add(
+                    "sold"
+                );
+
 
                 pixel.innerHTML = `
 
                     <img
-                        src="${company.logo}"
-                        alt="${company.name}"
+                        src="${
+                            company.logoUrl ||
+                            "https://via.placeholder.com/100?text=Logo"
+                        }"
+                        alt="${
+                            company.companyName
+                        }"
                         onerror="
                             this.src=
                             'https://via.placeholder.com/100?text=Logo'
@@ -808,7 +938,9 @@ function createPixelWall() {
                     >
 
                     <span class="company-name">
-                        ${company.name}
+                        ${
+                            company.companyName
+                        }
                     </span>
 
                 `;
@@ -817,37 +949,53 @@ function createPixelWall() {
 
 
             pixel.title =
-                `${zone} | ₹${PRICES[zone]} | Pixel ${pixelNumber}`;
+                company
+
+                ? company.companyName
+
+                : `${zone} | ₹${PRICES[zone]} | Pixel ${pixelNumber}`;
 
 
             const currentPixel =
                 pixelNumber;
 
 
-            pixel.onclick = function() {
+            pixel.onclick =
+                function() {
 
-                openProfile(
-                    currentPixel,
-                    zone,
-                    company
-                );
+                    openProfile(
+                        currentPixel,
+                        zone,
+                        company
+                    );
 
-            };
+                };
 
 
-            rowElement.appendChild(pixel);
+            rowElement.appendChild(
+                pixel
+            );
+
 
             pixelNumber++;
 
         }
 
 
-        wall.appendChild(rowElement);
+        wall.appendChild(
+            rowElement
+        );
 
     }
 
 }
 
+
+/*
+==========================================
+OPEN PROFILE
+==========================================
+*/
 
 function openProfile(
     pixelNumber,
@@ -856,59 +1004,103 @@ function openProfile(
 ) {
 
     selectedPixel = {
-        pixelNumber,
-        zone
+
+        pixelNumber:
+            pixelNumber,
+
+        zone:
+            zone
+
     };
 
 
     const modal =
-        document.getElementById("profileModal");
+        document.getElementById(
+            "profileModal"
+        );
 
 
     document.getElementById(
         "profileZone"
-    ).textContent = zone;
+    ).textContent =
+        zone;
 
 
     document.getElementById(
         "profilePrice"
-    ).textContent = PRICES[zone];
+    ).textContent =
+        PRICES[zone];
 
 
     document.getElementById(
         "profilePixel"
-    ).textContent = pixelNumber;
+    ).textContent =
+        pixelNumber;
 
 
     const websiteButton =
-        document.getElementById("websiteButton");
+        document.getElementById(
+            "websiteButton"
+        );
+
+
+    const reserveButton =
+        document.getElementById(
+            "reserveButton"
+        );
 
 
     if (company) {
 
         document.getElementById(
             "profileLogo"
-        ).src = company.logo;
+        ).src =
+            company.logoUrl ||
+            "https://via.placeholder.com/150?text=PIXEL";
 
 
         document.getElementById(
             "profileName"
-        ).textContent = company.name;
+        ).textContent =
+            company.companyName;
 
 
         document.getElementById(
             "profileCategory"
-        ).textContent = company.category;
+        ).textContent =
+            company.zone;
 
 
         document.getElementById(
             "profileDescription"
-        ).textContent = company.description;
+        ).textContent =
+            company.description ||
+            "Company profile";
 
 
-        websiteButton.style.display = "block";
+        if (company.websiteUrl) {
 
-        websiteButton.href = company.website;
+            websiteButton.style.display =
+                "block";
+
+            websiteButton.href =
+                company.websiteUrl;
+
+        } else {
+
+            websiteButton.style.display =
+                "none";
+
+        }
+
+
+        reserveButton.disabled =
+            true;
+
+
+        reserveButton.textContent =
+            "Already Booked";
+
 
     } else {
 
@@ -936,99 +1128,504 @@ function openProfile(
             "This digital space is available for your company.";
 
 
-        websiteButton.style.display = "none";
+        websiteButton.style.display =
+            "none";
+
+
+        reserveButton.disabled =
+            false;
+
+
+        reserveButton.textContent =
+            "Reserve This Pixel";
 
     }
 
 
-    modal.classList.add("show");
-
-}
-
-
-function closeProfile() {
-
-    document
-        .getElementById("profileModal")
-        .classList.remove("show");
-
-}
-
-
-function reservePixel() {
-
-    if (!selectedPixel) {
-        return;
-    }
-
-
-    alert(
-        "Selected Pixel: " +
-        selectedPixel.pixelNumber +
-        "\nZone: " +
-        selectedPixel.zone +
-        "\nPrice: ₹" +
-        PRICES[selectedPixel.zone] +
-        "\n\nBooking API and Payment Gateway will be connected next."
+    modal.classList.add(
+        "show"
     );
 
 }
 
 
+/*
+==========================================
+RESERVE PIXEL
+==========================================
+*/
+
+async function reservePixel() {
+
+    if (!selectedPixel) {
+
+        showToast(
+            "Please select a pixel."
+        );
+
+        return;
+
+    }
+
+
+    const pixelNumber =
+        selectedPixel.pixelNumber;
+
+
+    if (
+        bookedPixels[pixelNumber]
+    ) {
+
+        showToast(
+            "This pixel is already booked."
+        );
+
+        return;
+
+    }
+
+
+    const companyName =
+        prompt(
+            "Enter your company name:"
+        );
+
+
+    if (
+        !companyName ||
+        !companyName.trim()
+    ) {
+
+        return;
+
+    }
+
+
+    const contactName =
+        prompt(
+            "Enter contact person name:"
+        );
+
+
+    const mobile =
+        prompt(
+            "Enter 10-digit mobile number:"
+        );
+
+
+    if (
+        !/^[6-9][0-9]{9}$/.test(
+            mobile || ""
+        )
+    ) {
+
+        alert(
+            "Please enter a valid 10-digit Indian mobile number."
+        );
+
+        return;
+
+    }
+
+
+    const email =
+        prompt(
+            "Enter email address:"
+        );
+
+
+    const websiteUrl =
+        prompt(
+            "Enter website URL:"
+        );
+
+
+    const logoUrl =
+        prompt(
+            "Enter logo URL:"
+        );
+
+
+    const description =
+        prompt(
+            "Enter company description:"
+        );
+
+
+    const bookingData = {
+
+        pixelNumber:
+            pixelNumber,
+
+        companyName:
+            companyName.trim(),
+
+        contactName:
+            contactName || "",
+
+        mobile:
+            mobile,
+
+        email:
+            email || "",
+
+        websiteUrl:
+            websiteUrl || "",
+
+        logoUrl:
+            logoUrl || "",
+
+        description:
+            description || ""
+
+    };
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE_URL +
+                "/api/bookings",
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            bookingData
+                        )
+
+                }
+            );
+
+
+        if (!response.ok) {
+
+            const errorText =
+                await response.text();
+
+
+            throw new Error(
+                errorText ||
+                "Booking failed."
+            );
+
+        }
+
+
+        const booking =
+            await response.json();
+
+
+        bookedPixels[
+            booking.pixelNumber
+        ] = booking;
+
+
+        closeProfile();
+
+        createPixelWall();
+
+
+        alert(
+
+            "Booking created successfully!\n\n" +
+
+            "Booking ID: " +
+            booking.id +
+
+            "\nPixel: " +
+            booking.pixelNumber +
+
+            "\nZone: " +
+            booking.zone +
+
+            "\nPrice: ₹" +
+            booking.price +
+
+            "\nStatus: " +
+            booking.status
+
+        );
+
+
+        /*
+         * Create payment after booking.
+         */
+
+        await createPayment(
+            booking.id
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        alert(
+
+            "Unable to create booking.\n\n" +
+
+            "Please make sure the Spring Boot backend is running."
+
+        );
+
+    }
+
+}
+
+
+/*
+==========================================
+CREATE PAYMENT
+==========================================
+*/
+
+async function createPayment(
+    bookingId
+) {
+
+    try {
+
+        const response =
+            await fetch(
+
+                API_BASE_URL +
+                "/api/payments/create/" +
+                bookingId,
+
+                {
+
+                    method:
+                        "POST"
+
+                }
+
+            );
+
+
+        if (!response.ok) {
+
+            const errorText =
+                await response.text();
+
+
+            throw new Error(
+                errorText ||
+                "Payment creation failed."
+            );
+
+        }
+
+
+        const payment =
+            await response.json();
+
+
+        alert(
+
+            "Payment order created.\n\n" +
+
+            "Payment ID: " +
+            payment.id +
+
+            "\nAmount: ₹" +
+            payment.amount +
+
+            "\nStatus: " +
+            payment.paymentStatus +
+
+            "\n\nReal payment gateway will be connected next."
+
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        alert(
+
+            "Booking created successfully,\n" +
+
+            "but payment could not be created."
+
+        );
+
+    }
+
+}
+
+
+/*
+==========================================
+SEARCH
+==========================================
+*/
+
 function searchCompany() {
 
     const value =
         document
-            .getElementById("searchBox")
+            .getElementById(
+                "searchBox"
+            )
             .value
             .toLowerCase()
             .trim();
 
 
     document
-        .querySelectorAll(".pixel")
-        .forEach(pixel => {
+        .querySelectorAll(
+            ".pixel"
+        )
+        .forEach(
+            pixel => {
 
-            const text =
-                pixel.textContent.toLowerCase();
+                const text =
+                    pixel.textContent
+                        .toLowerCase();
 
 
-            pixel.style.opacity =
-                (!value || text.includes(value))
+                pixel.style.opacity =
+
+                    (
+                        !value ||
+                        text.includes(value)
+                    )
+
                     ? "1"
+
                     : ".15";
 
-        });
+            }
+        );
 
 }
 
+
+/*
+==========================================
+CLOSE PROFILE
+==========================================
+*/
+
+function closeProfile() {
+
+    document
+        .getElementById(
+            "profileModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+}
+
+
+/*
+==========================================
+SCROLL
+==========================================
+*/
 
 function goToWall() {
 
     document
-        .getElementById("pixelWallSection")
+        .getElementById(
+            "pixelWallSection"
+        )
         .scrollIntoView({
-            behavior: "smooth"
+
+            behavior:
+                "smooth"
+
         });
 
 }
 
 
+/*
+==========================================
+TOAST
+==========================================
+*/
+
+function showToast(
+    message
+) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    setTimeout(
+        function() {
+
+            toast.style.display =
+                "none";
+
+        },
+        3000
+    );
+
+}
+
+
+/*
+==========================================
+MODAL OUTSIDE CLICK
+==========================================
+*/
+
 document
-    .getElementById("profileModal")
+    .getElementById(
+        "profileModal"
+    )
     .addEventListener(
         "click",
         function(event) {
 
-            if (event.target === this) {
+            if (
+                event.target === this
+            ) {
+
                 closeProfile();
+
             }
 
         }
     );
 
 
-createPixelWall();
+/*
+==========================================
+START APPLICATION
+==========================================
+*/
+
+loadBookings();
 
 </script>
 
